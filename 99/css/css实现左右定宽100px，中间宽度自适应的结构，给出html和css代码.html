@@ -110,7 +110,6 @@
         .container3 {
             margin-top: 30px;
             display: grid;
-            justify-content: space-between;
             grid-template-columns: 100px auto 100px;
         }
 
@@ -127,35 +126,6 @@
         }
     </style>
 
-    <style>
-        .container4 {
-            margin-top: 30px;
-        }
-
-        .row4 {
-            display: table-row;
-        }
-
-        .left4,
-        .main4,
-        .right4 {
-            display: table-cell;
-        }
-
-        .left4 {
-            width: 100px;
-            background: gold;
-        }
-
-        .right4 {
-            width: 100px;
-            background: greenyellow;
-        }
-
-        .main4 {
-            background: red;
-        }
-    </style>
 </head>
 
 <body>
@@ -198,6 +168,35 @@
         <div class="right3">right</div>
     </div>
 
+    <style>
+        .container4 {
+            margin-top: 30px;
+        }
+
+        .row4 {
+            display: table-row;
+        }
+
+        .left4,
+        .main4,
+        .right4 {
+            display: table-cell;
+        }
+
+        .left4 {
+            width: 100px;
+            background: gold;
+        }
+
+        .right4 {
+            width: 100px;
+            background: greenyellow;
+        }
+
+        .main4 {
+            background: red;
+        }
+    </style>
     <!-- table布局 -->
     <div class="container4">
         <div class="row4">
@@ -207,6 +206,51 @@
             </div>
             <div class="right4">right</div>
         </div>
+    </div>
+
+    <style>
+        .container5 {
+            position: relative;
+            margin-top: 30px;
+            height: 200px;
+        }
+
+        .left5 {
+            position: absolute;
+            width: 100px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: auto;
+            background: gold;
+        }
+
+        .main5 {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 100px;
+            right: 100px;
+            background: red;
+        }
+
+        .right5 {
+            position: absolute;
+            width: 100px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: auto;
+            background: greenyellow;
+        }
+    </style>
+    <!-- position布局 - 除非固定高度的情况 否则不推荐使用 -->
+    <div class="container5">
+        <div class="left5">left</div>
+        <div class="main5">
+            position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局position布局
+        </div>
+        <div class="right5">right</div>
     </div>
 </body>
 
