@@ -1,11 +1,213 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css实现左右定宽100px，中间宽度自适应的结构，给出html和css代码</title>
+    <style>
+        /* 虚拟容器 */
+        .container {
+            overflow: hidden;
+        }
+
+        .left,
+        .main,
+        .right {
+            float: left;
+            word-break: break-all;
+            /* min-height: 130px; */
+            padding-bottom: 999999px;
+            margin-bottom: -999999px;
+        }
+
+        .main {
+            width: 100%;
+            background: grey;
+        }
+
+
+        .left {
+            width: 100px;
+            margin-left: -100%;
+            background: gold;
+        }
+
+        .right {
+            width: 100px;
+            margin-left: -100px;
+            background: greenyellow;
+        }
+
+        .center {
+            margin: 0 100px 0 100px;
+            background: red;
+        }
+    </style>
+
+    <style>
+        .container1 {
+            margin-top: 30px;
+            padding: 0 100px 0 100px;
+            overflow: hidden;
+        }
+
+        .main1,
+        .left1,
+        .right1 {
+            position: relative;
+            float: left;
+            word-break: break-all;
+            padding-bottom: 999999px;
+            margin-bottom: -999999px;
+        }
+
+        .left1 {
+            margin-left: -100%;
+            left: -100px;
+            width: 100px;
+            background: gold;
+        }
+
+        .right1 {
+            margin-left: -100px;
+            right: -100px;
+            width: 100px;
+            background: greenyellow;
+        }
+
+        .main1 {
+            width: 100%;
+            background: red;
+        }
+    </style>
+
+    <style>
+        .container2 {
+            margin-top: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: stretch;
+        }
+
+        .left2 {
+            width: 100px;
+            background: gold;
+        }
+
+        .right2 {
+            width: 100px;
+            background: greenyellow;
+        }
+
+        .main2 {
+            flex: 1;
+            background: red;
+        }
+    </style>
+
+    <style>
+        .container3 {
+            margin-top: 30px;
+            display: grid;
+            justify-content: space-between;
+            grid-template-columns: 100px auto 100px;
+        }
+
+        .left3 {
+            background: gold;
+        }
+
+        .right3 {
+            background: greenyellow;
+        }
+
+        .main3 {
+            background: red;
+        }
+    </style>
+
+    <style>
+        .container4 {
+            margin-top: 30px;
+        }
+
+        .row4 {
+            display: table-row;
+        }
+
+        .left4,
+        .main4,
+        .right4 {
+            display: table-cell;
+        }
+
+        .left4 {
+            width: 100px;
+            background: gold;
+        }
+
+        .right4 {
+            width: 100px;
+            background: greenyellow;
+        }
+
+        .main4 {
+            background: red;
+        }
+    </style>
 </head>
+
 <body>
-    
+
+    <!-- 双飞翼布局 -->
+    <div class="container">
+        <div class="main">
+            <div class="center">
+                双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局双飞翼布局
+            </div>
+        </div>
+        <div class="left">left</div>
+        <div class="right">right</div>
+    </div>
+
+    <!-- 圣杯布局 需要设置最小宽 -->
+    <div class="container1">
+        <div class="main1">
+            圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局圣杯布局
+        </div>
+        <div class="left1">left</div>
+        <div class="right1">right</div>
+    </div>
+
+    <!-- flex布局 -->
+    <div class="container2">
+        <div class="left2">left</div>
+        <div class="main2">
+            flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局flex布局
+        </div>
+        <div class="right2">right</div>
+    </div>
+
+    <!-- grid布局 -->
+    <div class="container3">
+        <div class="left3">left</div>
+        <div class="main3">
+            grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局grid布局
+        </div>
+        <div class="right3">right</div>
+    </div>
+
+    <!-- table布局 -->
+    <div class="container4">
+        <div class="row4">
+            <div class="left4">left</div>
+            <div class="main4">
+                table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局table布局
+            </div>
+            <div class="right4">right</div>
+        </div>
+    </div>
 </body>
+
 </html>
