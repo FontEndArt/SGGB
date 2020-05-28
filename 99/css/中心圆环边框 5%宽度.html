@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>中心圆环边框 5%宽度</title>
+    <style>
+        div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .main {
+            width: 100px;
+            height: 100px;
+            background: #f1f1f1;
+            position: relative;
+        }
+        .bg {
+            width: 50%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: red;
+            border-radius: 100%;
+        }
+        .self {
+            width: 45%;
+            height: 45%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: #f1f1f1;
+            border-radius: 100%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="bg"></div>
+        <div class="self">11</div>
+    </div>
+</body>
+
+</html>
