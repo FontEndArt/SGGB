@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>css实现左右固定100宽度，中间自适应</title>
+		<style>
+			body{
+				text-align: center;
+				word-break: break-all;
+			}
+			.type{
+				font-weight: bold;
+				margin-top: 50px;
+				font-size: 30px;
+				margin-bottom: 10px;
+			}
+			/*--------------------- flex开始 --------------------------*/
+			.flex{
+				display: flex;
+			}
+			.flex .left,.flex .right{
+				width: 100px;
+				background: #FFD700;
+			}
+			.flex .main{
+				flex: 1;
+				background: #FF0000;
+			}
+			/*--------------------- flex结束 --------------------------*/
+			
+			/*--------------------- float开始 --------------------------*/
+			.float::after{
+				content: "";
+				display: block;
+				clear: both;
+			}
+			.float .left,.float .right{
+				width: 100px;
+				float: left;
+				background: #828282;
+			}
+			.float .right{
+				float: right;
+			}
+			.float .main{
+				background: #BAEAE3;
+				width: calc(100% - 200px);
+				float: left;
+			}
+			/*--------------------- float结束 --------------------------*/
+			
+			/*--------------------- table开始 --------------------------*/
+			.table{
+				display: table-row;
+			}
+			.table .left,.table .right{
+				width: 100px;
+				display: table-cell;
+				background: #8A90EA;
+			}
+			.table .main{
+				background: #DF2E98;
+				display: table-cell;
+			}
+			/*--------------------- table结束 --------------------------*/
+			
+			/*--------------------- position开始 --------------------------*/
+			.position{
+				position: relative;
+			}
+			.position .left,.position .right{
+				position: absolute;
+				width: 100px;
+				left: 0;
+				top: 0;
+				height: 100%;
+				background: #1E9BAC;
+			}
+			.position .right{
+				left: auto;
+				right: 0;
+			}
+			.position .main{
+				padding: 0 100px;
+				background: #300E8B;
+				display: block;
+				
+				transition: ;
+			}
+			/*--------------------- position结束 --------------------------*/
+		</style>
+	</head>
+	<body>
+		<!--------------- flex布局开始 --------------->
+		<div class="type">
+			flex
+		</div>
+		<div class="flex">
+			<span class="left">left</span>
+			<span class="main">main</span>
+			<span class="right">right</span>
+		</div>
+		<!--------------- flex布局结束 --------------->
+		
+		<!--------------- float布局开始 --------------->
+		<div class="type">
+			float
+		</div>
+		<div class="float">
+			<span class="left">left</span>
+			<span class="main">main</span>
+			<span class="right">right</span>
+		</div>
+		<!--------------- float布局结束 --------------->
+		
+		<!--------------- table布局开始 --------------->
+		<div class="type">
+			table
+		</div>
+		<div class="table">
+			<span class="left">left</span>
+			<span class="main">mainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainmainma</span>
+			<span class="right">right</span>
+		</div>
+		<!--------------- table布局结束 --------------->
+		
+		<!--------------- position布局开始 --------------->
+		<div class="type">
+			position
+		</div>
+		<div class="position">
+			<span class="left">left</span>
+			<span class="main">main</span>
+			<span class="right">right</span>
+		</div>
+		<!--------------- position布局结束 --------------->
+	</body>
+</html>
