@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>绘制三角形</title>
+
+    <style>
+        body {
+            padding-bottom: 200px;
+        }
+
+        .triangle1 {
+            width: 0;
+            height: 0;
+            border: 100px solid red;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            border-bottom: none;
+        }
+
+        .triangle2 {
+            width: 0;
+            height: 0;
+            border: 100px solid red;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            border-top: none;
+        }
+
+        .triangle3 {
+            width: 0;
+            height: 0;
+            border: 200px solid red;
+            border-right: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-top: none;
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <p>-------------CSS-----------------</p>
+    <div>倒三角</div>
+    <div class="triangle1"></div>
+    <pre>
+        .triangle1 {
+            width: 0;
+            height: 0;
+            border: 100px solid red;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            border-bottom: none;
+        }
+    </pre>
+    <div>正三角</div>
+    <div class="triangle2"></div>
+    <pre>
+        .triangle2 {
+            width: 0;
+            height: 0;
+            border: 100px solid red;
+            border-right-color: transparent;
+            border-left-color: transparent;
+            border-top: none;
+        }
+    </pre>
+    <div>等腰三角</div>
+    <div class="triangle3"></div>
+    <pre>
+        .triangle3 {
+            width: 0;
+            height: 0;
+            border: 200px solid red;
+            border-right: 100px solid transparent;
+            border-left: 100px solid transparent;
+            border-top: none;
+        }
+    </pre>
+
+    <style>
+        .analyze {
+            position: relative;
+        }
+
+        .height-line {
+            position: absolute;
+            left: 50%;
+            height: 200px;
+            border-left: 1px solid black;
+            width: 400px;
+            /* white-space: pre-wrap; */
+            word-wrap: break-word;
+        }
+
+        .left-line {
+            position: absolute;
+            width: 100px;
+            left: -100px;
+            bottom: -200px;
+            border-bottom: 2px solid green;
+            text-align: center;
+        }
+
+        .right-line {
+            position: absolute;
+            width: 100px;
+            left: 0;
+            bottom: -200px;
+            border-bottom: 2px solid blue;
+            text-align: center;
+        }
+    </style>
+    <div>分解图</div>
+    <div class="analyze">
+        <div class="triangle3">
+            <div class="height-line">
+                <p>&nbsp;</p>
+                <p>&nbsp;</p>
+                height
+            </div>
+            <div class="left-line">left</div>
+            <div class="right-line">right</div>
+        </div>
+    </div>
+    <p>height: 相当于border-top/border-bottom，取决于三角形的方向</p>
+    <p>left: 相当于border-left的大小，在这里把颜色设置为 transparent, 以设置三角形的 left 边</p>
+    <p>right: 相当于border-right的大小，在这里把颜色设置为 transparent, 以设置三角形的 right 边</p>
+    <p>三角形的尖，朝向哪个方向，哪个方向的 border-width 便应该为 0。</p>
+    <p>&nbsp;</p>
+    <p>&nbsp;</p>
+
+    <p>同理</p>
+    <p>朝向右边的三角形</p>
+    <style>
+        .triangle4 {
+            width: 0;
+            height: 0;
+            border: 200px solid red;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-right: none;
+        }
+    </style>
+    <div class="triangle4"></div>
+    <p>朝向左边的三角形</p>
+    <style>
+        .triangle5 {
+            width: 0;
+            height: 0;
+            border: 200px solid red;
+            border-top: 100px solid transparent;
+            border-bottom: 100px solid transparent;
+            border-left: none;
+        }
+    </style>
+    <div class="triangle5"></div>
+
+    <p>-------------另类的CSS-----------------</p>
+
+    <style>
+        .triangle6 {
+            position: relative;
+            width: 200px;
+            height: 100px;
+            background: red;
+            overflow: hidden;
+        }
+
+        .cover-left {
+            position: absolute;
+            top: -75px;
+            left: -75px;
+            width: 150px;
+            height: 150px;
+            background: white;
+            transform: rotate(45deg);
+        }
+
+        .cover-right {
+            position: absolute;
+            top: -75px;
+            right: -75px;
+            width: 150px;
+            height: 150px;
+            background: white;
+            transform: rotate(45deg);
+        }
+    </style>
+    <p>定位+旋转</p>
+    <div class="triangle6">
+        <div class="cover-left"></div>
+        <div class="cover-right"></div>
+    </div>
+
+    <style>
+        .triangle7 {
+            width: 300px;
+            height: 300px;
+            background: red;
+            clip-path: polygon(0 100%, 50% 0, 100% 100%);
+        }
+    </style>
+    <p>clip-path: 我们可以用clip-path做出许多有意思的东西，并不仅限于三角形</p>
+    <div class="clip">
+        <div class="triangle7"></div>
+    </div>
+
+    <p>-------------SVG-----------------</p>
+
+    <p>线</p>
+    <svg>
+        <line x1="100" y1="0" x2="0" y2="100" style="stroke-width: 2; stroke:red;"></line>
+        <line x1="100" y1="0" x2="200" y2="100" style="stroke-width: 2; stroke:red;"></line>
+        <line x1="0" y1="100" x2="200" y2="100" style="stroke-width: 2; stroke:red;"></line>
+    </svg>
+
+    <p>定义一个包含至少三边图形，三点一个多边形</p>
+    <svg>
+        <polygon points="0,100 100,0 200,100" style="fill: red;" />
+    </svg>
+
+    <p>折线: 起始点一致</p>
+    <svg>
+        <polyline points="0,100 100,0 200,100 0,100" style="stroke: red; stroke-width:3; fill:none" />
+    </svg>
+
+    <p>-------------Canvas-----------------</p>
+    <style>
+        #canvas {
+            width: 300px;
+            height: 300px;
+            border: 1px solid #ccc;
+        }
+    </style>
+    <canvas id="canvas"></canvas>
+    <script>
+        const canvas = document.getElementById("canvas");
+        const ctx = canvas.getContext('2d');
+
+        ctx.beginPath();
+        ctx.lineWidth = "2";
+        ctx.strokeStyle = "red"; // 红色路径
+        ctx.moveTo(100, 0);
+        ctx.lineTo(0, 100)
+        ctx.lineTo(200, 100)
+        ctx.lineTo(100, 0)
+        ctx.stroke();
+    </script>
+</body>
+
+</html>
