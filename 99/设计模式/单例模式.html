@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    单例模式介绍
+
+    - 确保只有一个实例
+    - 提供全局访问
+
+    <script>
+        // JavaScript中的单例模式
+
+        // ## 使用命名空间
+        // 使用命名空间，并不能杜绝全局变量，但是可以减少全局变量的数量。
+        // 最简单的放大是使用对象字面量的方式：
+        var namespace1 = {
+            a: function () {
+                console.log(1);
+            },
+            b: function () {
+                console.log(2);
+            }
+        };
+
+        // 我们也可以动态的程序创建命名空间
+
+        var MyApp = {};
+        MyApp.namespace = function (name) {
+            var parts = name.split('.');
+            var current = MyApp;
+            for (var i in parts) {
+                if (!current[parts[i]]) {
+                    current[parts[i]] = {};
+                }
+                current = current[parts[i]];
+            }
+        };
+        MyApp.namespace('kim');
+        MyApp.namespace('dom.style');
+
+        console.log(MyApp)
+
+        //上面的代码等价于
+        var MyApp = {
+            kim: {},
+            dom: {
+                style: {}
+            }
+        }
+
+
+        // ## 使用闭包来封装私有变量
+        // > 我们在JavaScript用下划线来约定私有变量_name 和_age
+        var user = (function () {
+            var _name = 'kim';
+            var _age = 18;
+            return {
+                getUserInfo: function () {
+                    return _name + '-' + _age;
+                }
+            }
+        })();
+
+        console.log(user);
+        console.log(user.getUserInfo());
+
+
+        // ## 惰性单例
+        // 惰性单例：我们在需要的时候才创建对象实例，其实惰性单例才是单例模式的重点。
+        // 其中instance实例对象总是在我们调用Singleton.getInstance的时候才会被创建，而不是在页面加载的时候就会被调用。
+        var Singleton = function (name) {
+            this.name = name;
+        }
+
+        Singleton.prototype.getName = function () {
+            return this.name;
+        }
+
+        Singleton.getInstance = (function () {
+            var instance = null;
+            return function (name) {
+                if (!instance) {
+                    instance = new Singleton(name);
+                }
+                return instance;
+            }
+        })();
+
+        var a = Singleton.getInstance("a")
+        console.log(a.getName());
+    </script>
+
+    单例模式的场景
+
+    很多知道设计模式的程序员们, 大都知道单例模式, 但是在不熟悉的情况下极易被滥用, 往往被用在使用它并不能带来好处的场景下。
+
+    有很多用了单例的代码并不真的只需要一个实例, 这时使用单例模式就会引入不必要的限制和全局状态维护困难等缺陷。
+
+    通常说来, 适合使用单例模式的机会也并不会太多, 如果你的某个工程中出现了太多单例, 你就应该重新审视一下你的设计, 详细确认一下这些场景是否真的都必须要控制实例的个数。
+
+
+
+    一般在两种场景下会考虑使用单例（Singleton）模式：
+
+    - 产生某对象会消耗过多的资源，为避免频繁地创建与销毁对象对资源的浪费。如：
+    
+    - 对数据库的操作、访问 IO、线程池（threadpool）、网络请求等。
+    
+    
+
+    单例模式的优点：可以减少系统内存开支，减少系统性能开销，避免对资源的多重占用、同时操作。
+
+    单例模式的缺点：扩展很困难，容易引发内存泄露，测试困难，一定程度上违背了单一职责原则，进程被杀时可能有状态不一致问题。
+
+</body>
+
+</html>
