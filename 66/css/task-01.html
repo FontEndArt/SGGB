@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>css实现左右定宽100px，中间宽度自适应的结构</title>
+    <style type="text/css">
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            height: 100px;
+        }
+
+        .c1 {
+            overflow: hidden;
+        }
+
+        .cleft,
+        .cright,
+        .ccenter {
+            height: 100%;
+        }
+
+        .c1 .cleft {
+            width: 100px;
+            float: left;
+            background: red;
+        }
+
+        .c1 .ccenter {
+            margin: 0 -100px;
+            background: orange;
+        }
+
+        .c1 .cright {
+            width: 100px;
+            float: right;
+            background: orchid;
+        }
+
+        .c11 {
+            margin: 50px 0 0 0;
+        }
+
+        .c11 .cleft {
+            width: 100px;
+            float: left;
+            background: red;
+        }
+
+        .c11 .ccenter {
+            float: left;
+            width: calc(100% - 200px);
+            background: orange;
+        }
+
+        .c11 .cright {
+            width: 100px;
+            float: left;
+            background: orchid;
+        }
+
+        .c2 {
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .c2 .cleft {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100px;
+            background: red;
+        }
+
+        .c2 .ccenter {
+            margin: 0 100px;
+            background: orange;
+        }
+
+        .c2 .cright {
+            position: absolute;
+            width: 100px;
+            right: 0;
+            top: 0;
+            background: orchid;
+        }
+
+        .c3 {
+            margin: 50px 0;
+            position: relative;
+            display: flex;
+        }
+
+        .c3 .cleft {
+            width: 100px;
+            background: red;
+        }
+
+        .c3 .ccenter {
+            flex: 1;
+            background: orange;
+        }
+
+        .c3 .cright {
+            width: 100px;
+            background: orchid;
+        }
+
+        .c4 {
+            margin: 50px 0;
+            position: relative;
+            display: grid;
+            grid-template-columns: 100px calc(100% - 200px) 100px;
+        }
+
+        .c4 .cleft {
+            background: red;
+        }
+
+        .c4 .ccenter {
+            background: orange;
+        }
+
+        .c4 .cright {
+            background: orchid;
+        }
+
+        .c5 {
+            margin: 50px 0;
+            position: relative;
+            display: table;
+            width: 100%;
+        }
+
+        .c5 .cleft {
+            display: table-cell;
+            width: 100px;
+            background: red;
+        }
+
+        .c5 .ccenter {
+            display: table-cell;
+            width: calc(100% - 200px);
+            background: orange;
+        }
+
+        .c5 .cright {
+            display: table-cell;
+            width: 100px;
+            background: orchid;
+        }
+
+        .c6 {
+            margin: 50px 0;
+            position: relative;
+        }
+
+        .c6 .cleft {
+            position: absolute;
+            width: 100px;
+            left: 0;
+            top: 0;
+            background: red;
+        }
+
+        .c6 .ccenter {
+            width: calc(100% - 200px);
+            background: orange;
+            transform: translate(100px, 0);
+        }
+
+        .c6 .cright {
+            position: absolute;
+            width: 100px;
+            right: 0;
+            top: 0;
+            background: orchid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="c1">
+        <div class="cleft">left</div>
+        <div class="ccenter">float布局</div>
+        <div class="cright">right</div>
+    </div>
+
+    <div class="c11">
+        <div class="cleft">left</div>
+        <div class="ccenter">float布局</div>
+        <div class="cright">right</div>
+    </div>
+
+    <div class="c2">
+        <div class="cleft">left</div>
+        <div class="ccenter">position布局</div>
+        <div class="cright">right</div>
+    </div>
+
+    <div class="c3">
+        <div class="cleft">left</div>
+        <div class="ccenter">flex布局</div>
+        <div class="cright">right</div>
+    </div>
+
+    <div class="c4">
+        <div class="cleft">left</div>
+        <div class="ccenter">grid布局</div>
+        <div class="cright">right</div>
+    </div>
+
+    <div class="c5">
+        <div class="cleft">left</div>
+        <div class="ccenter">table</div>
+        <div class="cright">right</div>
+    </div>
+
+    <div class="c6">
+        <div class="cleft">left</div>
+        <div class="ccenter">transform</div>
+        <div class="cright">right</div>
+    </div>
+</body>
+
+</html>
