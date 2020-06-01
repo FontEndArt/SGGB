@@ -14,15 +14,39 @@
             background: orange;
             transition: left 0.5s linear;
         }
-
+        
         .box:hover {
             left: 50px
+        }
+        
+        .box1 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 200px;
+            left: 0;
+            background: orange;
+            animation: divmove 1s linear infinite;
+        }
+        
+        @keyframes divmove {
+            0% {
+                left: 0
+            }
+            50% {
+                left: 100px;
+            }
+            100% {
+                left: 0
+            }
         }
     </style>
 </head>
 
 <body>
     <div class="box"></div>
+
+    <div class="box1"></div>
 </body>
 
 </html>

@@ -1,6 +1,6 @@
 ### 用css如何实现动画
 
-##### css实现动画主要有两类： transition, animate
+##### css实现动画主要有两类： transition, animation
 
 ---
 
@@ -43,4 +43,39 @@
     我们试验以后发现 成功完成动画
 
 
-    接下来我们再来描述下animate
+    接下来我们再来描述下animation
+
+    animate 相比 transition 的话灵活性比较高，可实现比较复杂的动画效果，接下来详细介绍下animation
+
+    animate 共有6个动画属性，相比transition多出两个，一个是可以自定义动画效果，不局限于transition简单的变换，另一个就是animation动画可持续循环播放，接下来详细介绍折六个属性
+
+    animate-name    动画名称
+    animate-duration    完成动画所花费时间
+    animate-timing-function     动画曲线(同transition)
+    animate-delay   动画在多久之后开始
+    animate-iteration-count     动画播放的次数
+    animate-direction       是否轮流反方向播放动画
+
+
+    首先，animation动画可以自定义，具体表现在动画名称处，即animate-name处，我们一般用@keframes来完成我们的动画定义，举个例子：
+    实现一个元素匀速左右移动的动画：
+    @keyframes divmove {
+        0% {
+            left: 0
+        }
+
+        50% {
+            left: 100px;
+        }
+
+        100% {
+            left: 0
+        }
+    }
+
+    定义好动画以后我们来把剩下的属性添加完成，animation可简写为：
+    延时开始若为0，可不写，是否轮流反向播放默认是normal，也可先不填，
+    这样一个简单的animate动画就写好了
+    animation: divmove 1s linear infinite;
+
+    经测试以后发现我们一个简单的动画已经完成了
